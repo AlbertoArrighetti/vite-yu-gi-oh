@@ -20,14 +20,13 @@ export default {
 
 <template>
 <div class="ext_container">
-    <div class="container">
+    <ul>
+        <CardItem 
+        v-for="currentCard in store.cards"
+        :card="currentCard"
+        ></CardItem>
         
-        <ul>
-            <li v-for="currentCard in store.cards">
-                {{ currentCard.name }}
-            </li>
-        </ul>
-    </div>
+    </ul>
 </div>
 
 </template>
@@ -35,5 +34,14 @@ export default {
 <style lang="scss">
 @use '../styles/variables' as *;
 
+ul {
+    list-style-type: none;
+
+    display: flex;
+    flex-flow: row wrap;
+    
+    gap:24px $cardListGap;
+    padding: 70px;
+}
 
 </style>
