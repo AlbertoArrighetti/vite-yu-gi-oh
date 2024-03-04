@@ -28,6 +28,7 @@ nav {
     align-items: center;
     
     padding-left: 30px;
+    margin-bottom: 40px;
 
     background-color: white;
     color: black;
@@ -37,7 +38,7 @@ nav {
     }
     h1 {
         padding: 30px;
-        font-weight: 500;
+        font-weight: 400;
         font-size: 44px;
     }
 }

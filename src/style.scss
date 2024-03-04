@@ -1,11 +1,14 @@
+@use './styles/variables' as *;
+
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: black;
+  background-color: $primaryColor;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,4 +21,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+// containers
+.ext_container{
+  max-width: 1600px;
+  margin: 0 auto;
+  background-color: white;
+}
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
 }
