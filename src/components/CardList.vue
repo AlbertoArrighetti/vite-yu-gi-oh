@@ -37,6 +37,7 @@ export default {
                 {{ currentArchetype.archetype_name }}
                 </option>
             </select>
+            <button @click="$emit('search')"> click </button>
         
             
             <div class="founded">
