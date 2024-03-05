@@ -2,8 +2,6 @@
 import CardItem from './CardItem.vue';
 // store
 import { store } from '../store.js';
-// import axios
-import axios from 'axios';
 
 export default {
     name: 'CardList',
@@ -15,18 +13,10 @@ export default {
     data() {
         return {
             store,
-
-            archetype: [],
         }
     },
 
-    created() {
-        axios
-      .get('https://db.ygoprodeck.com/api/v7/archetypes.php')
-      .then(res => {
-        this.archetype = res.data;
-      })
-    },
+   
 }
 </script>
 
@@ -35,11 +25,16 @@ export default {
         <div class="ext_container">
 
 
-            <select name="archetypes">
+            <select v-model="store.selectedArchetype">
+                <option disabled value="">Seleziona una</option>
+                
+                <option selected value="ShowAll">Mostra Tutte</option>
+
                 <option 
-                v-for="(selectedArchetype, index) in archetype"    
-                value="">
-                {{ selectedArchetype.archetype_name }}
+                v-for="currentArchetype in store.archetype"    
+                :value="currentArchetype.archetype_name"
+                >
+                {{ currentArchetype.archetype_name }}
                 </option>
             </select>
         
