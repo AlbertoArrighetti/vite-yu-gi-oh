@@ -25,7 +25,6 @@ export default {
 <style lang="scss">
 nav {
     display: flex;
-    align-items: center;
     
     padding-left: 30px;
     margin-bottom: 40px;

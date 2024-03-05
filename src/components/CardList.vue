@@ -2,6 +2,8 @@
 import CardItem from './CardItem.vue';
 // store
 import { store } from '../store.js';
+// import axios
+import axios from 'axios';
 
 export default {
     name: 'CardList',
@@ -13,7 +15,17 @@ export default {
     data() {
         return {
             store,
+
+            archetype: [],
         }
+    },
+
+    created() {
+        axios
+      .get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+      .then(res => {
+        this.archetype = res.data;
+      })
     },
 }
 </script>
@@ -21,9 +33,18 @@ export default {
 <template>
     <main>
         <div class="ext_container">
+
+
+            <select name="archetypes">
+                <option 
+                v-for="(selectedArchetype, index) in archetype"    
+                value="">
+                {{ selectedArchetype.archetype_name }}
+                </option>
+            </select>
         
             
-            <div class="counter">
+            <div class="founded">
                 Found {{ store.cards.length }} cards
             </div>
             <ul>
@@ -45,7 +66,7 @@ export default {
     padding: 70px;
     margin-bottom: 50px;
 
-    .counter {
+    .founded {
         padding: 28px 24px;
 
         font-weight: bold;
