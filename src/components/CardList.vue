@@ -25,7 +25,7 @@ export default {
         <div class="ext_container">
 
 
-            <select v-model="store.selectedArchetype">
+            <select class="search" v-model="store.selectedArchetype">
                 <option disabled value="">Seleziona una</option>
                 
                 <option selected value="ShowAll">Mostra Tutte</option>
@@ -37,7 +37,7 @@ export default {
                 {{ currentArchetype.archetype_name }}
                 </option>
             </select>
-            <button @click="$emit('search')"> click </button>
+            <button class="search_btn" @click="$emit('search')"> Cerca per tipo</button>
         
             
             <div class="founded">
@@ -62,8 +62,18 @@ export default {
     padding: 70px;
     margin-bottom: 50px;
 
+    .search {
+        padding: 10px;
+        margin: 10px 0;
+        margin-right: 10px;
+    }
+    .search_btn {
+        padding: 10px;
+        background-color: $primaryColor;
+    }
     .founded {
         padding: 28px 24px;
+        margin-bottom: 10px;
 
         font-weight: bold;
         color: white;
