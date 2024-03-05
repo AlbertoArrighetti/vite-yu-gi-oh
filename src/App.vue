@@ -13,20 +13,18 @@ export default {
   data() {
     return {
       store,
+
+      apiURL: 'https://db.ygoprodeck.com/api/v7/',
     }
   },
 
   created() {
 
-    axios
-      .get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
-      .then(res => {
+      axios.get(`${this.apiURL}cardinfo.php?num=20&offset=0`).then(res => {
         this.store.cards = res.data.data;
       })
 
-      axios
-        .get('https://db.ygoprodeck.com/api/v7/archetypes.php')
-        .then(res => {
+      axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php').then(res => {
         this.store.archetype = res.data;
       })
     
@@ -39,15 +37,11 @@ export default {
   methods: {
     searchArchetype() {
       if (this.store.selectedArchetype !== "ShowAll"){
-        axios
-        .get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&archetype=' + this.store.selectedArchetype)
-        .then(res => {
+        axios.get(`${this.apiURL}cardinfo.php?num=20&offset=0&archetype=` + this.store.selectedArchetype).then(res => {
           this.store.cards = res.data.data;
         })
       }else {
-        axios
-        .get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
-        .then(res => {
+        axios.get(`${this.apiURL}cardinfo.php?num=20&offset=0`).then(res => {
           this.store.cards = res.data.data;
         })
       }
