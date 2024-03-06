@@ -9,4 +9,7 @@ export const store = reactive({
     archetype: [],
 
     selectedArchetype: "",
+
+
+    numberOfCard: null,
 });

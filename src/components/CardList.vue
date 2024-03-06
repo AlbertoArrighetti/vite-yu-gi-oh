@@ -40,7 +40,9 @@ export default {
         
             
             <div class="founded">
-                Found {{ store.cards.length }} cards
+                <div>
+                    Total cards on database: {{ store.numberOfCard }}
+                </div>
             </div>
             <ul>
                 <CardItem 
@@ -65,12 +67,18 @@ export default {
         padding: 10px;
         margin: 10px 0;
         margin-right: 10px;
+
+        font-size: 16px;
     }
     .founded {
+        display: flex;
+        justify-content: flex-end;
+
         padding: 28px 24px;
         margin-bottom: 10px;
 
         font-weight: bold;
+        font-size: 14px;
         color: white;
         background-color: #212529;
     }

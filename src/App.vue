@@ -21,6 +21,7 @@ export default {
   created() {
 
       axios.get(`${this.apiURL}cardinfo.php?num=20&offset=0`).then(res => {
+        this.store.numberOfCard = res.data.meta.total_rows
         this.store.cards = res.data.data;
       })
 
@@ -38,10 +39,12 @@ export default {
     searchArchetype() {
       if (this.store.selectedArchetype !== "ShowAll"){
         axios.get(`${this.apiURL}cardinfo.php?num=20&offset=0&archetype=` + this.store.selectedArchetype).then(res => {
+          this.store.numberOfCard = res.data.meta.total_rows
           this.store.cards = res.data.data;
         })
       }else {
         axios.get(`${this.apiURL}cardinfo.php?num=20&offset=0`).then(res => {
+          this.store.numberOfCard = res.data.meta.total_rows
           this.store.cards = res.data.data;
         })
       }
